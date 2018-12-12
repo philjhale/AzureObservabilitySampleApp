@@ -23,14 +23,14 @@ namespace ObservabilitySampleApp.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            _logger.LogInformation("Getting a dog image..");
+            _logger.LogInformation("Getting a dog image from API running on k8s..");
             
             using (HttpClient client = new HttpClient())
             {
                 // https://dog.ceo/dog-api/
                 var response = await client.GetAsync("https://dog.ceo/api/breeds/image/random");
                 
-                _logger.LogInformation($"Dog image response {response}", response);
+                _logger.LogInformation($"Dog image response from API running on k8s {response}", response);
                 
                 response.EnsureSuccessStatusCode();
                 

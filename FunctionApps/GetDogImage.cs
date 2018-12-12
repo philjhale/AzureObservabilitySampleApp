@@ -18,7 +18,7 @@ namespace ObservabilitySampleApp.FunctionApps
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "getdogimage")] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("Getting a dog image..");
+            log.LogInformation("Getting a dog image from Function App...");
 
             using (HttpClient client = new HttpClient())
             {
@@ -26,7 +26,7 @@ namespace ObservabilitySampleApp.FunctionApps
                 var response = await client.GetAsync("https://dog.ceo/api/breeds/image/random");
                 
                 // Structured logging is supported out of the box
-                log.LogInformation($"Dog image response {response}", response);
+                log.LogInformation($"Dog image response from Function App {response}", response);
                 
                 response.EnsureSuccessStatusCode();
                 
