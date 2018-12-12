@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: observability-sample-deployment
+  labels:
+    app: observability-sample-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: observability-sample
+  template:
+    metadata:
+      labels:
+        app: observability-sample
+    spec:
+      containers:
+      - name: observability-sample
+        image: observability-sample-app:latest
+        imagePullPolicy: Never # don't pull from DockerHub. Without setting this option a local Docker image won't be found
+        ports:
+        - containerPort: 80 # port exposed by container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: observability-sample-service
+  labels:
+    app: observability-sample-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 4000 # load balancer port (i.e. the public port)
+    targetPort: 80 # connect to contains on this port
+    protocol: TCP
+  selector:
+    app: observability-sample # must point to pod label
