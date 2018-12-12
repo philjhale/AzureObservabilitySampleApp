@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
       - name: observability-sample
-        image: observability-sample-app:latest
-        imagePullPolicy: Never # don't pull from DockerHub. Without setting this option a local Docker image won't be found
+        image: philjhale/observability-sample-app:latest
         ports:
         - containerPort: 80 # port exposed by container
 ---

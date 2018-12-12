@@ -1,1 +1,1 @@
-docker run -p 8080:80 observability-sample-app:latest
+docker run -p 8080:80 philjhale/observability-sample-app:latest

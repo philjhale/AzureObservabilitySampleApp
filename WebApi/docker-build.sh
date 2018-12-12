@@ -1,1 +1,1 @@
-docker build -t observability-sample-app .
+docker build -t philjhale/observability-sample-app .
