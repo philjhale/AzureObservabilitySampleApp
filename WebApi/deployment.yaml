@@ -19,6 +19,9 @@ spec:
         image: philjhale/observability-sample-app:latest
         ports:
         - containerPort: 80 # port exposed by container
+        env:
+        - name: APPINSIGHTS_INSTRUMENTATIONKEY
+          value: e161d2c5-dada-4a93-8691-ee4d8e3085d5
 ---
 apiVersion: v1
 kind: Service

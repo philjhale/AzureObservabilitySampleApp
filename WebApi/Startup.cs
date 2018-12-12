@@ -25,6 +25,9 @@ namespace ObservabilitySampleApp.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Enable Kubernetes related properties like Pod-Name, Deployment ... on all your telemetry entries
+            // https://github.com/Microsoft/ApplicationInsights-Kubernetes/blob/develop/examples/BasicUsage_clr21_RBAC/README.MD
+            services.AddApplicationInsightsKubernetesEnricher();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
