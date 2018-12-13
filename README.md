@@ -26,7 +26,6 @@ Note, you may want to alter the names of all the Azure resources created.
 ```
 az login
 az group create --name=observability-sample --location=ukwest
-az storage account create --name observabilitystorage --resource-group observability-sample --sku Standard_LRS
 ```
 
 ## Create and publish a Function App
